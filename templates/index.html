@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{message}}</title>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <h2>{{subtittle}}</h2>
+    <ul class="list-group">
+    {% for producto in productos %}
+     <!-- {% if producto.disponibilidad == True %}
+     <p>{{producto}}</p>
+     {% else %}
+     <p>El producto {{producto.nombre}} no esta disponible</p>
+     {% endif %} -->
+
+        <li class="list-group-item">
+            {{producto.nombre}}:
+            {% if producto.disponible == True %}
+            <span class="text-success">disponible</span>
+            {% else %}
+            <span class="text-danger">No disponible</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
